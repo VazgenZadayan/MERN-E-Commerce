@@ -24,7 +24,7 @@ import useStyles from './styles';
 
 import image from 'assets/detailBackground.jpg';
 
-const ProductDetailSection = ({ history, match }) => {
+const ProductDetailSection = ({ match }) => {
   const classes = useStyles();
   const { t, lang } = useTranslations();
   const [qty, setQty] = useState(1);
