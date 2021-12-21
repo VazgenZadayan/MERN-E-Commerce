@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,EACE,QAAS,CACT,SAAU,CACV,YACF,CAEA,WACE,gBAAiB,CACjB,eAAiB,CACjB,wCACF","file":"main.8451be14.chunk.css","sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n  outline: none;\n}\n  \n@font-face {\n  font-family: Burn;\n  font-weight: bold;\n  src: url(assets/fonts/Burn.OTF);\n}"]}

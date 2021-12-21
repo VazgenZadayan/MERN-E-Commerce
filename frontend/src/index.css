@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+  
+@font-face {
+  font-family: Burn;
+  font-weight: bold;
+  src: url(assets/fonts/Burn.OTF);
+}
