@@ -1,31 +1,70 @@
 import { makeStyles } from '@mui/styles';
 
 export default makeStyles({
-  cartSection: {
-    height: '400px'
-  },
-  imageHolder: {
+  card: {
+    height: '300px',
+    padding: '0 7px',
     position: 'relative',
-    width: '100%',
-    height: '90%',
+    display: 'flex',
+    alignItems: 'flex-end',
+    transition: '0.4s ease-out',
+	  boxShadow: '0px 7px 10px #0000008c',
+    '&:hover': {
+      transform: 'translateY(5px)',
+      '&::before': {
+        opacity: '1',
+      },
+    },
+    '&::before': {
+      content: "' '",
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      borderRadius: '5px',
+      background: 'rgba(0, 0, 0, 0.7)',
+      zIndex: '2',
+      transition: '0.8s',
+      opacity: '0',
+    }
   },
-  name: {
-    fontSize: '24px!important',
+  media: {
+    objectFit: 'cover',
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    borderRadius: '5px',
+    width: '100%',
+    height: '100%',
+  },
+  info: {
+    position: 'relative',
+    zIndex: '3',
+    color: 'white',
+    opacity: '0',
+    transform: 'translateY(30px)',
+    transition: '0.5s',
+    '&:hover': {
+      opacity: '1',
+      transform: 'translateY(0px)'
+    }
   },
   price: {
-    fontFamily: 'Copperplate',
-    fontWeight: 'normal',
-    fontSize: '18px',
-    lineHeight: '19px',
-    color: 'rgba(255, 255, 255, 0.65);',
-    marginTop: '4px',
+    marginBottom: '110px', marginLeft: '72%'
   },
-  button: {
-    width: '100%',
-    marginTop: '9px',
+  description: {
+    textOverflow:'ellipsis',
+    overflow:'hidden',
+    display: '-webkit-box',
+    WebkitLineClamp: '4',
+    WebkitBoxOrient: 'vertical',
+    whiteSpace: 'normal',
+    marginBottom: '10px',
+    lineHeight: '18px',
   },
-  addToCart: {
-    width: '100%!important',
-    marginTop:'9px!important'
+  btn: {
+    width: '100%'
   }
 })

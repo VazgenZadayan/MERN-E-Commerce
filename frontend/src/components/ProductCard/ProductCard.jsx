@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import Fb from 'components/Fb';
-
 import Loader from 'components/Loader';
 
 import Grid from '@mui/material/Grid';
@@ -17,50 +15,39 @@ import { addToCart } from 'store/actions/cartActions';
 
 const ProductCart = ({ product, loading }) => {
   const classes = useStyles();
-  const { t } = useTranslations();
+  const { t, lang } = useTranslations();
 
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
     dispatch(addToCart(product._id, 1));
-  }
+  };
   return (
-    <Grid item md={3} className={classes.cartSection}>
+    <Grid md={4} lg={3} xs={10} sm={6} item>
       {loading ? (
         <Loader />
       ) : (
-        <>
-          <img src={product.image} alt="Product" className={classes.imageHolder}/>
-          <Fb
-            py={2}
-            justifyBetween
-            alignLeft
-            column
-          >
-            <Typography
-              color='primary'
-              className={classes.name}
-            >
-              {product.name}
-            </Typography>
-            {product.countInStock > 0 ? (
-              <h1
-                className={classes.price}
-              >
-                {`${product.price} AMD`}
-              </h1>
-            ) : (
-              'Out of Stock'
-            )}
+        <div className={classes.card}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className={classes.media}
+          />
+          <div className={classes.info}>
+            <h4 className={classes.price}>{product.price} $</h4>
+            <Typography variant='h4'>{product.name}</Typography>
+            <p className={classes.description}>
+              {product?.description[lang]}
+            </p>
             <Button
-              variant='link'
+              className={classes.btn}
               onClick={addToCartHandler}
-              className={classes.addToCart}
+              variant='link'
             >
-                {t('add_to_cart_btn')}
+              {t('add_to_cart_btn')}
             </Button>
-          </Fb>
-        </>
+          </div>
+        </div>
       )}
     </Grid>
   );
