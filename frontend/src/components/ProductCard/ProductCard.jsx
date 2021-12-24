@@ -1,11 +1,14 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Loader from 'components/Loader';
+import Fb from 'components/Fb';
 
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
 import Typography from '@mui/material/Typography';
 
 import useStyles from './styles';
@@ -34,13 +37,20 @@ const ProductCart = ({ product, loading }) => {
             className={classes.media}
           />
           <div className={classes.info}>
-            <h4 className={classes.price}>{product.price} $</h4>
+            <Fb justifyBetween alignCenter mb={13}>
+              <IconButton
+                color='primary'
+                component={Link}
+                to={`/product/${product._id}`}
+              >
+                <InfoIcon />
+              </IconButton>
+              <h4>{product.price} AMD</h4>
+            </Fb>
             <Typography variant='h4'>{product.name}</Typography>
-            <p className={classes.description}>
-              {product?.description[lang]}
-            </p>
+            <p className={classes.description}>{product?.description[lang]}</p>
             <Button
-              className={classes.btn}
+              style={{ width: '100%' }}
               onClick={addToCartHandler}
               variant='link'
             >
