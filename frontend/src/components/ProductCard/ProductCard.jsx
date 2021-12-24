@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
@@ -15,52 +15,54 @@ import { useTranslations } from 'contexts/translation.context';
 
 import { addToCart } from 'store/actions/cartActions';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea, CardActions } from '@mui/material';
+
 const ProductCart = ({ product, loading }) => {
-  const classes = useStyles();
   const { t } = useTranslations();
+
+  const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
     dispatch(addToCart(product._id, 1));
-  }
+  };
   return (
-    <Grid item md={3} className={classes.cartSection}>
+    <Grid md={4} lg={3} xs={10} sm={6} item>
       {loading ? (
         <Loader />
       ) : (
-        <>
-          <img src={product.image} alt="Product" className={classes.imageHolder}/>
-          <Fb
-            py={2}
-            justifyBetween
-            alignLeft
-            column
-          >
-            <Typography
-              color='primary'
-              className={classes.name}
-            >
-              {product.name}
-            </Typography>
-            {product.countInStock > 0 ? (
-              <h1
-                className={classes.price}
-              >
-                {`${product.price} AMD`}
-              </h1>
-            ) : (
-              'Out of Stock'
-            )}
+        <Card style={{ background: 'transparent', padding: '0' }}>
+          <CardMedia
+            component='img'
+            height='100%'
+            image={product.image}
+            alt={product.name}
+          />
+          <CardContent>
+            <Fb alignCenter justifyBetween>
+              <Typography variant='h5'>{product.name}</Typography>
+              <Typography component='span'>
+                {product.countInStock > 0
+                  ? `${product.price} AMD`
+                  : 'Out of Stock'}
+              </Typography>
+            </Fb>
+          </CardContent>
+          <CardActions style={{ padding: '0' }}>
             <Button
               variant='link'
               onClick={addToCartHandler}
-              className={classes.addToCart}
+              color='primary'
+              style={{ width: '100%' }}
             >
-                {t('add_to_cart_btn')}
+              {t('add_to_cart_btn')}
             </Button>
-          </Fb>
-        </>
+          </CardActions>
+        </Card>
       )}
     </Grid>
   );

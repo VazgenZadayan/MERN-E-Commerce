@@ -23,10 +23,10 @@ const ProductsListScreen = ({ products, loading }) => {
     setBrand(index);
   };
 
+  if(!productsEntries.length) return null;
+
   return (
-    <Container className={classes.container}>
-      {productsEntries.length > 0 && (
-        <>
+    <Container className={classes.container} disableGutters>
           <p className={classes.catalog}>{t('catalog')}</p>
           <Tabs
             value={brand}
@@ -44,9 +44,11 @@ const ProductsListScreen = ({ products, loading }) => {
           </Tabs>
           <Grid
             container
-            spacing={6}
-            rowSpacing={17}
-            style={{ padding: '60px 50px 0 70px' }}
+            spacing={4}
+            p={4}
+            mt={2}
+            justifyContent='center'
+            alignItems='top'
           >
             {productsEntries[brand][1].map(product => (
               <ProductCart
@@ -56,8 +58,6 @@ const ProductsListScreen = ({ products, loading }) => {
               />
             ))}
           </Grid>
-        </>
-      )}
     </Container>
   );
 };
