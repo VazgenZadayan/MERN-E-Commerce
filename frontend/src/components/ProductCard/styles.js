@@ -64,7 +64,4 @@ export default makeStyles({
     marginBottom: '10px',
     lineHeight: '18px',
   },
-  btn: {
-    width: '100%'
-  }
 })
