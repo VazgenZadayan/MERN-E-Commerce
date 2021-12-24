@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useDispatch } from 'react-redux';
-
-import Fb from 'components/Fb';
 
 import Loader from 'components/Loader';
 
@@ -15,15 +13,9 @@ import { useTranslations } from 'contexts/translation.context';
 
 import { addToCart } from 'store/actions/cartActions';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea, CardActions } from '@mui/material';
-
 const ProductCart = ({ product, loading }) => {
-  const { t } = useTranslations();
-
-  const [open, setOpen] = useState(false);
+  const classes = useStyles();
+  const { t, lang } = useTranslations();
 
   const dispatch = useDispatch();
 
@@ -35,34 +27,27 @@ const ProductCart = ({ product, loading }) => {
       {loading ? (
         <Loader />
       ) : (
-        <Card style={{ background: 'transparent', padding: '0' }}>
-          <CardMedia
-            component='img'
-            height='100%'
-            image={product.image}
+        <div className={classes.card}>
+          <img
+            src={product.image}
             alt={product.name}
+            className={classes.media}
           />
-          <CardContent>
-            <Fb alignCenter justifyBetween>
-              <Typography variant='h5'>{product.name}</Typography>
-              <Typography component='span'>
-                {product.countInStock > 0
-                  ? `${product.price} AMD`
-                  : 'Out of Stock'}
-              </Typography>
-            </Fb>
-          </CardContent>
-          <CardActions style={{ padding: '0' }}>
+          <div className={classes.info}>
+            <h4 className={classes.price}>{product.price} $</h4>
+            <Typography variant='h4'>{product.name}</Typography>
+            <p className={classes.description}>
+              {product?.description[lang]}
+            </p>
             <Button
-              variant='link'
+              className={classes.btn}
               onClick={addToCartHandler}
-              color='primary'
-              style={{ width: '100%' }}
+              variant='link'
             >
               {t('add_to_cart_btn')}
             </Button>
-          </CardActions>
-        </Card>
+          </div>
+        </div>
       )}
     </Grid>
   );
