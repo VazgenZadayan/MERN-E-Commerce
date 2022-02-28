@@ -57,21 +57,24 @@ const Slider = () => {
       behavior: 'smooth',
     });
   };
+
+  //  Background
+  // background: `url(${image}) no-repeat center/cover fixed`,
   
   return (
     <>
       {error ? null : (
         <Container
           className={classes.container}
-          style={{ background: `url(${image}) no-repeat center/cover fixed` }}
+          style={{  paddingTop: '6%'}}
           onMouseOver={() => setMouseOver(false)}
           onMouseOut={() => setMouseOver(true)}
         >
           <Grid container className={classes.mainGrid}>
             <Grid
               item
-              md={4}
-              ml={2}
+              md={6}
+              ml={3}
               className={classes.sidebar}
               style={{ transform: `translateY(-${activeSlide * 100}%)` }}
             >
@@ -91,7 +94,7 @@ const Slider = () => {
             </Grid>
             <Grid
               item
-              md={8}
+              md={5}
               className={classes.mainSlide}
               style={{
                 top: `-${(slidesCount - 1) * 100}%`,
@@ -103,12 +106,12 @@ const Slider = () => {
               ) : (
                 [...products].reverse().map(product => (
                   <Fb
-                    style={{ background: 'rgba(39,41,50, 0.30)' }}
+                    style={{ background: 'rgb(18,18,18)'}}
                     className={classes.mainSlideDiv}
                     key={product._id}
                     column
-                    pt={4}
-                    pr={16}
+                    pt={8}
+                    pr={5}
                     pl={7}
                   >
                     <Typography
@@ -116,6 +119,7 @@ const Slider = () => {
                       style={{
                         fontSize: '18px',
                         fontFamily: 'Burn',
+                        marginBottom: '40px'
                       }}
                     >
                       {product.brand}
@@ -144,6 +148,7 @@ const Slider = () => {
                       component={Link}
                       to={`/product/${product._id}`}
                       variant='link'
+                      style={{ marginTop: '40px' }}
                     >
                       {t('see_more')}
                     </Button>
@@ -154,13 +159,9 @@ const Slider = () => {
           </Grid>
           <KeyboardArrowDownIcon
             onClick={scrollDown}
-            style={{
-              fontSize: '60px',
-              margin: '0 auto',
-              display: 'block',
-              cursor: 'pointer',
-            }}
+            className={classes.keydown}
             color='primary'
+            fontSize='60px'
           />
         </Container>
       )}

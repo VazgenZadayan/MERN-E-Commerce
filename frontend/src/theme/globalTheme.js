@@ -10,8 +10,8 @@ const theme = createTheme({
   },
   palette: {
     background: {
-      default: 'rgb(39, 41, 50)',
-      paper: 'rgb(39, 41, 50)',
+      // default: 'rgb(18 18 18)',
+      // paper: 'rgb(39, 41, 50)',
     },
     text:{
       primary: 'rgb(247, 243, 237)'
@@ -20,7 +20,7 @@ const theme = createTheme({
       main: 'rgb(247, 243, 237)',
     },
     secondary: {
-      main: 'rgb(39, 41, 50)',
+      main: 'rgb(18, 18, 18)',
     },
     success: {
       main: 'rgb(255, 255, 255)'
@@ -70,11 +70,8 @@ const theme = createTheme({
           lineHeight: '16px',
           color: '#f7f3ed',
           height: '35px',
-          background: 'rgb(39, 41, 50)',
-          ':hover' : {
-            background: 'rgba(39, 41, 50, 0.70)',
-            color: 'rgba(247, 243, 237, 0.80)',
-          }
+          background: '#ff6900',
+          
         },
         text: {
           color: '#ffffff',
@@ -101,7 +98,7 @@ const theme = createTheme({
       styleOverrides: {
         textColorInherit: 'rgba(255, 255, 255, 0.8)',
         root: {
-          background: 'rgb(39, 41, 50)',
+          background: 'rgb(18, 18, 18)',
           fontFamily:'Copperplate',
           fontWeight: 'normal',
           fontSize: '20px',
@@ -115,7 +112,7 @@ const theme = createTheme({
       styleOverrides: {
         filled: {
           fontFamily: 'Copperplate',
-          background: 'rgb(39, 41, 50)',
+          background: '#1a1a1c',
           borderRadius: '0',
           fontWeight: 'normal',
           fontSize: '16px',
@@ -136,13 +133,6 @@ const theme = createTheme({
           borderColor: 'rgba(255, 255, 255, 0.6)',
         }
       }
-    },
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundColor: 'rgb(0, 0, 1)',
-        }
-      },
     }
   },
 });

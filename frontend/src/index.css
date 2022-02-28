@@ -3,6 +3,10 @@
   padding: 0;
   outline: none;
 }
+
+body {
+  background: #1a1a1c!important;
+}
   
 @font-face {
   font-family: Burn;

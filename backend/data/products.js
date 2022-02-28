@@ -1,7 +1,7 @@
 const products = [
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -13,11 +13,11 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -29,11 +29,11 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -45,11 +45,11 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -61,11 +61,11 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -77,11 +77,11 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -93,11 +93,11 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -109,11 +109,11 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
   {
     name: 'After 8',
-    image: '/vector/after8_vector.jpg',
+    image: '/images/icebaby.jpeg',
     description:{
       "ru":'Традиционный вкус известного шоколада в табачном воплощении. Легкий сигарный привкус с ореховыми нотками не перебивает шоколадной ароматики. Насыщенный After 8 раскрывает дымные объятия, обволакивая сначала прохладной свежестью мяты, а затем оставляя выраженное шоколадное послевкусие с характерной сладостью. Яркий контраст делает вкус необычным и многогранным.',
       "en": "The traditional taste of the famous tobacco-based chocolate. Light cigar flavor with nutty notes does not interrupt the chocolate aroma. Intense After 8 opens a smoky embrace, enveloping first with the cool freshness of mint, and then leaving a pronounced chocolate aftertaste with a characteristic sweetness. The bright contrast makes the taste unusual and multifaceted.",
@@ -125,7 +125,7 @@ const products = [
     weight: '250г',
     price: '10000',
     countInStock: 3,
-    packageImage: '/vector/package.png',
+    packageImage: '/images/icebaby.png',
   },
 ];
 

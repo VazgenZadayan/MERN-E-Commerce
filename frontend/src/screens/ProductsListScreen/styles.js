@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 
 export default makeStyles({
   container: {
-    background: 'linear-gradient(rgb(16 1 16) 2%, rgb(13 19 28 / 53%) 21.57%)',
+    // background: 'linear-gradient(rgb(16 1 16) 2%, rgb(13 19 28 / 53%) 21.57%)',
     paddingTop: '70px'
   },
   catalog: {
