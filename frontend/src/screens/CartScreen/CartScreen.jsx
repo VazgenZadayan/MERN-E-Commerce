@@ -21,7 +21,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
-import image from 'assets/detailBackground.jpg';
 
 import useStyles from './styles';
 
@@ -55,9 +54,8 @@ const CartScreen = ({ match, location, history }) => {
       container
       justifyContent='space-around'
       className={classes.container}
-      style={{ background: `url(${image}) no-repeat center/cover` }}
     >
-      <Grid item md={7}>
+      <Grid item md={8}>
         {cartItems.length === 0 ? (
           <Typography className={classes.isEmpty}>
             {t('cart_empty')}
@@ -108,7 +106,7 @@ const CartScreen = ({ match, location, history }) => {
                         labelId='demo-simple-select-label'
                         style={{
                           color: 'white',
-                          background: 'rgb(145 145 145 / 21%)',
+                          background: '#1a1a1c',
                           height: '35px',
                           width: '70px',
                           borderRadius: '0',
@@ -125,7 +123,7 @@ const CartScreen = ({ match, location, history }) => {
                           <MenuItem
                             value={x + 1}
                             key={x + 1}
-                            style={{ color: 'black', borderRadius: '0' }}
+                            style={{ color: 'white', borderRadius: '0' }}
                           >
                             <p>{x + 1}</p>
                           </MenuItem>
@@ -153,9 +151,9 @@ const CartScreen = ({ match, location, history }) => {
       </Grid>
       <Grid
         item
-        md={4}
+        md={3}
         p={2}
-        style={{ background: 'rgb(145 145 145 / 21%)', maxHeight: '70vh' }}
+        style={{background: 'rgb(18,18,18)', maxHeight: '70vh', borderRadius: '10px' }}
       >
         <Fb column justifyAround style={{ height: '100%' }}>
           <h1
@@ -168,7 +166,7 @@ const CartScreen = ({ match, location, history }) => {
           >
             {t('cart')}
           </h1>
-          <Divider style={{ background: '#e61cb34d' }} />
+          <Divider style={{ background: '#1a1a1c', height: '3px' }} />
           <Typography
             style={{
               fontFamily: 'Copperplate',
@@ -178,7 +176,7 @@ const CartScreen = ({ match, location, history }) => {
           >
             {t('quantity')}: {cartItems.reduce((acc, item) => acc + item.qty, 0)}
           </Typography>
-          <Divider style={{ background: '#e61cb34d' }} />
+          <Divider style={{ background: '#1a1a1c', height: '3px' }} />
 
           <Typography style={{ fontFamily: 'Copperplate', fontSize: '30px' }}>
             {t('sum')}: 
@@ -186,13 +184,12 @@ const CartScreen = ({ match, location, history }) => {
               .reduce((acc, item) => acc + item.qty * item.price, 0)
               } AMD
           </Typography>
-          <Divider style={{ background: '#e61cb34d' }} />
+          <Divider style={{ background: '#1a1a1c', height: '3px' }} variant='fullWidth'/>
 
           <Fb column>
             <Button
               style={{
                 width: '100%',
-                background: '#e61cb34d',
                 marginBottom: '10px',
               }}
               type='button'
@@ -204,10 +201,14 @@ const CartScreen = ({ match, location, history }) => {
               {t('place_order')}
             </Button>
             <Button
-              style={{ width: '100%' }}
+              style={{
+                width: '100%',
+                background: '#1a1a1c',
+              }}
               component={Link}
               variant='link'
               to='/'
+              
             >
               {t('back_to_buy')}
             </Button>

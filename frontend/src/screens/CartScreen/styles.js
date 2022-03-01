@@ -2,8 +2,8 @@ import { makeStyles } from "@mui/styles";
 
 export default makeStyles({
   container: {
-    height: '100vh',
-    paddingTop: '120px',
+    minHeight: '78vh',
+    maxHeight: '100vh',
   },
   isEmpty: {
     background: 'rgb(145 145 145 / 21%)',

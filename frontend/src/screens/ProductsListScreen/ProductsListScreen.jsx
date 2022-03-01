@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
+import Loader from 'components/Loader';
 
 const ProductsListScreen = ({ products, loading }) => {
   const classes = useStyles();

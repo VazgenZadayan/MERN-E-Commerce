@@ -21,7 +21,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
       qty,
     },
   });
-  toast.success(`${data.name} (${qty}qt) added to cart`);
+  toast.success(`${data.name} ${qty > 1 ? qty : ''} added to cart`);
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 };
 

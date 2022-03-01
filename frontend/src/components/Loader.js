@@ -5,7 +5,7 @@ const Loader = () => {
   return (
     <Skeleton
       variant="rectangular"
-      style={{background: 'rgba(99, 99, 99, 0.2)'}}
+      style={{background: 'rgb(18,18,18)', borderRadius: '10px'}}
       animation="wave"
       width='100%'
       height='100%'

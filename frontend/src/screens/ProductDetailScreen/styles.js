@@ -1,9 +1,18 @@
 import { makeStyles } from '@mui/styles';
 
 export default makeStyles(theme => ({
-  details: {
-    background: 'rgba(99,99,99, 0.15)',
-    padding: theme.spacing(3)
+  container: {
+    height: '88vh',
+  },
+  mainGrid: {
+    height: '75vh',
+    margin: '0 auto',
+    position: 'relative', 
+    overflow: 'hidden', 
+  },
+  descriptionBlock:{
+    height: '100%',
+    borderRadius: '10px'
   },
   brand: {
     color: '#969696',

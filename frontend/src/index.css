@@ -13,3 +13,19 @@ body {
   font-weight: bold;
   src: url(assets/fonts/Burn.OTF);
 }
+
+@font-face {
+  font-family: Harmony;
+  font-weight: bold;
+  src: url(assets/fonts/Harmony.otf);
+}
+
+@font-face {
+  font-family: Holiday;
+  font-weight: bold;
+  src: url(assets/fonts/HolidayFree.otf);
+}
+
+:root {
+  --toastify-color-success: #f7f3ed;
+}

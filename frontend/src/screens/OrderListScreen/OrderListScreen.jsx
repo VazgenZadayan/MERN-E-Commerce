@@ -15,8 +15,6 @@ import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 
-import image from 'assets/detailBackground.jpg';
-
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
 
@@ -38,17 +36,18 @@ const OrderListScreen = ({ location, history }) => {
       history.push('/login')
     }
   }, [dispatch, history, userInfo]);
+
+  if(!orderList) return null;
  
   return (
     <Container
       md={12}
       className={classes.container}
-      style={{ background: `url(${image}) no-repeat center/cover` }}
     >
       <Typography style={{ fontSize: '40px', textAlign: 'center' }}>
         {t('orders')}
       </Typography>
-      {loading ? (
+      {!orders ? (
         <Loader />
       ) : (
         <Table size='small' sx={{ minWidth: 650 }} aria-label='simple table'>

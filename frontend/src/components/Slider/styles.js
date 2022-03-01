@@ -3,12 +3,10 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles((theme) => ({
   container: {
     height: '100vh', 
-    width: '100%', 
   },
   mainGrid: {
     height: '75vh', 
     margin: '0 auto',
-    marginTop: '40px',
     position: 'relative', 
     overflow: 'hidden', 
   },
@@ -17,7 +15,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     position: 'absolute',
     left: '0',
-    transition: 'transform 1.5s ease-in-out'
+    transition: 'transform 1.5s ease-in-out',
   },
   sideBarDiv: {
     height: '100%',
@@ -33,7 +31,7 @@ export default makeStyles((theme) => ({
     height: '100%',
     position: 'absolute',
     top: '0',
-    left: '55%',
+    right: '0',
     width: '100%',
     transition: 'transform 1.5s ease-in-out',
   },

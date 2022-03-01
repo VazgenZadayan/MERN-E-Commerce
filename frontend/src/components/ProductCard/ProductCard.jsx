@@ -26,7 +26,7 @@ const ProductCart = ({ product, loading }) => {
     dispatch(addToCart(product._id, 1));
   };
   return (
-    <Grid md={4} lg={3} xs={10} sm={6} item>
+    <Grid md={4} lg={3} xs={10} sm={6} item p={4}>
       {loading ? (
         <Loader />
       ) : (
@@ -37,7 +37,7 @@ const ProductCart = ({ product, loading }) => {
             className={classes.media}
           />
           <div className={classes.info}>
-            <Fb justifyBetween alignCenter mb={13}>
+            <Fb justifyBetween alignCenter mb={23}>
               <IconButton
                 color='primary'
                 component={Link}

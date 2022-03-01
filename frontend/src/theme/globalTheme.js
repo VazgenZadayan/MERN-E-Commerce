@@ -10,8 +10,8 @@ const theme = createTheme({
   },
   palette: {
     background: {
-      // default: 'rgb(18 18 18)',
-      // paper: 'rgb(39, 41, 50)',
+      default: 'rgb(18 18 18)',
+      paper: 'rgb(18 18 18)',
     },
     text:{
       primary: 'rgb(247, 243, 237)'
@@ -29,19 +29,16 @@ const theme = createTheme({
   components: {
     MuiTable: {
       styleOverrides: {
-        stickyHeader: {
-          background: 'transparent',
-        },
         root: {
           borderCollapse: 'unset',
-          borderSpacing: '0 7px',
+          borderSpacing: '0 3px',
         }
       }
     },
     MuiTableRow: {
       styleOverrides: {
         root: {
-          background: 'rgb(145 145 145 / 21%)',
+          background: 'rgb(18 18 18)',
         },
       },
     },
@@ -49,15 +46,15 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           border: '0',
-          background: 'transparent',
         },
       },
     },
     MuiTableHead: {
       styleOverrides: {
         root: {
+          zIndex: '1000px',
           position: 'sticky',
-          top: 0
+          top: 0,
         },
       },
     },
@@ -65,20 +62,20 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         link: {
-          width: 'fit-content',
-          fontSize: '16px',
+          width: '220px',
+          fontSize: '18px',
           lineHeight: '16px',
           color: '#f7f3ed',
-          height: '35px',
+          height: '40px',
           background: '#ff6900',
-          
+          borderRadius: '10px'
         },
         text: {
           color: '#ffffff',
-          width: '100%',
+          width: '220px',
           height: '37px',
-          borderRadius: '0px 0px 10px 10px',
-          background: '#e61cb3',
+          borderRadius: '10px',
+          background: '#1a1a1c',
           fontFamily: 'GilroyMedium',
           fontSize: '10px',
         },

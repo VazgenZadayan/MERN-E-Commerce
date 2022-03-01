@@ -17,8 +17,6 @@ import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 
-import image from 'assets/detailBackground.jpg';
-
 import useStyles from './styles';
 
 const UserList = ({ location, history, match }) => {
@@ -53,7 +51,6 @@ const UserList = ({ location, history, match }) => {
     <Container
       md={12}
       className={classes.container}
-      style={{ background: `url(${image}) no-repeat center/cover` }}
     >
       <Typography style={{ fontSize: '40px', textAlign: 'center' }}>
         Users

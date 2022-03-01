@@ -11,8 +11,6 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CheckoutSteps from 'components/CheckoutSteps/CheckoutSteps';
 
-import image from 'assets/detailBackground.jpg';
-
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
 
@@ -37,9 +35,6 @@ const ShippingScreen = ({ history }) => {
     <Grid
       container
       className={classes.container}
-      style={{
-        background: `url(${image}) no-repeat center/cover`,
-      }}
     >
       <Container maxWidth='md'>
         <Typography style={{ textAlign: 'center', fontSize: '30px' }}>

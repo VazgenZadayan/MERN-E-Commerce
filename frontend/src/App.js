@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from 'components/Footer/Footer'
-import HomeScreen from './screens/MainScreen'
+import MainScreen from './screens/MainScreen'
 import CartScreen from './screens/CartScreen/CartScreen'
 import LoginScreen from './screens/LoginScreen/LoginScreen'
 import RegistrationScreen from './screens/RegistrationScreen/RegistrationScreen'
@@ -19,7 +19,7 @@ import ProductListScreen from './screens/ProductListScreen/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen/OrderListScreen'
 import CustomThemeProvider from 'theme';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css'
 import ProductDetailSection from 'screens/ProductDetailScreen/ProductDetailScreen'
@@ -34,7 +34,7 @@ axios.interceptors.response.use(
 const App = () => {
   return (
     <CustomThemeProvider>
-    <ToastContainer limit={3} theme='dark'/>
+    <ToastContainer limit={3} theme='dark'transition={Slide} />
     <TranslationProvider>
     <Router>
       <Header />
@@ -61,14 +61,8 @@ const App = () => {
           />
           <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
           <Route path='/admin/orderlist' component={OrderListScreen} />
-          <Route path='/search/:keyword' component={HomeScreen} exact />
-          <Route path='/page/:pageNumber' component={HomeScreen} exact />
-          <Route
-            path='/search/:keyword/page/:pageNumber'
-            component={HomeScreen}
-            exact
-          />
-          <Route path='/' component={HomeScreen} exact />
+
+          <Route path='/' component={MainScreen} exact />
           <Footer/>
     </Router>
     </TranslationProvider>

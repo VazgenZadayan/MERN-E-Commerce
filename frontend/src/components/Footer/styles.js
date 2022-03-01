@@ -2,9 +2,9 @@ import { makeStyles } from '@mui/styles';
 
 export default makeStyles({
   container: {
-    background: 'rgb(7 10 16 / 0%)',
-    height: '80px',
-    position: 'static',
+    background: 'rgb(18,18,18)',
+    height: '100px',
+    position: 'sticky',
     bottom: '0'
   },
   title: {

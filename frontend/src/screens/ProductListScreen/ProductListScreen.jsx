@@ -16,8 +16,6 @@ import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 
-import image from 'assets/detailBackground.jpg';
-
 import useStyles from './styles';
 import { PRODUCT_CREATE_RESET } from 'store/constants/productConstants';
 
@@ -66,7 +64,6 @@ const ProductListScreen = ({ match, history }) => {
     <Container
       md={12}
       className={classes.container}
-      style={{ background: `url(${image}) no-repeat center/cover` }}
     >
       <Typography style={{ fontSize: '40px', textAlign: 'center' }}>
         {t('products')}
