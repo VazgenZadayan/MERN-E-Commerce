@@ -13,8 +13,8 @@ const theme = createTheme({
       default: 'rgb(18 18 18)',
       paper: 'rgb(18 18 18)',
     },
-    text:{
-      primary: 'rgb(247, 243, 237)'
+    text: {
+      primary: 'rgb(247, 243, 237)',
     },
     primary: {
       main: 'rgb(247, 243, 237)',
@@ -23,8 +23,8 @@ const theme = createTheme({
       main: 'rgb(18, 18, 18)',
     },
     success: {
-      main: 'rgb(255, 255, 255)'
-    }
+      main: 'rgb(255, 255, 255)',
+    },
   },
   components: {
     MuiTable: {
@@ -32,8 +32,8 @@ const theme = createTheme({
         root: {
           borderCollapse: 'unset',
           borderSpacing: '0 3px',
-        }
-      }
+        },
+      },
     },
     MuiTableRow: {
       styleOverrides: {
@@ -58,7 +58,7 @@ const theme = createTheme({
         },
       },
     },
-    
+
     MuiButton: {
       styleOverrides: {
         link: {
@@ -68,7 +68,6 @@ const theme = createTheme({
           color: '#f7f3ed',
           height: '40px',
           background: '#ff6900',
-          borderRadius: '10px'
         },
         text: {
           color: '#ffffff',
@@ -78,6 +77,11 @@ const theme = createTheme({
           background: '#1a1a1c',
           fontFamily: 'GilroyMedium',
           fontSize: '10px',
+        },
+        light: {
+          ':disabled': {
+            color: '#ffffff4a',
+          },
         },
       },
     },
@@ -96,14 +100,14 @@ const theme = createTheme({
         textColorInherit: 'rgba(255, 255, 255, 0.8)',
         root: {
           background: 'rgb(18, 18, 18)',
-          fontFamily:'Copperplate',
+          fontFamily: 'Copperplate',
           fontWeight: 'normal',
           fontSize: '20px',
           lineHeight: '21px',
           marginRight: '10px',
           marginBottom: '10px',
-        }
-      }
+        },
+      },
     },
     MuiChip: {
       styleOverrides: {
@@ -113,24 +117,31 @@ const theme = createTheme({
           borderRadius: '0',
           fontWeight: 'normal',
           fontSize: '16px',
-          color: '#f7f3ed'
-        }
-      }
+          color: '#f7f3ed',
+        },
+      },
     },
-    MuiInputLabel:{
+    MuiInputBase: {
+      input: {
+        '&:-webkit-autofill': {
+          background: '#000000!important'
+        },
+      },
+    },
+    MuiInputLabel: {
       styleOverrides: {
         outlined: {
           color: 'rgba(255, 255, 255, 0.6)',
-        }
-      }
+        },
+      },
     },
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
           borderColor: 'rgba(255, 255, 255, 0.6)',
-        }
-      }
-    }
+        },
+      },
+    },
   },
 });
 

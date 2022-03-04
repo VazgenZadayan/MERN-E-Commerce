@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from '@mui/styles';
 
 export default makeStyles({
   container: {
@@ -6,12 +6,12 @@ export default makeStyles({
     maxHeight: '100vh',
   },
   isEmpty: {
-    background: 'rgb(145 145 145 / 21%)',
+    background: 'rgb(18,18,18)',
     width: 'fit-content',
-    padding: '20px',
+    padding: '40px',
   },
   tableContainer: {
     maxHeight: '70vh',
-    overflow: 'auto'
-  }
+    overflow: 'auto',
+  },
 });

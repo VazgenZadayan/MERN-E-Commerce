@@ -5,7 +5,7 @@ import colors from 'colors';
 import morgan from 'morgan';
 import express from 'express';
 
-import connectDB from './config/db.js';
+import connectDB from './database/db.js';
 
 import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';

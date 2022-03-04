@@ -11,7 +11,6 @@ import Container from '@mui/material/Container';
 
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
-import Loader from 'components/Loader';
 
 const ProductsListScreen = ({ products, loading }) => {
   const classes = useStyles();
@@ -24,41 +23,37 @@ const ProductsListScreen = ({ products, loading }) => {
     setBrand(index);
   };
 
-  if(!productsEntries.length) return null;
+  if (!productsEntries.length) return null;
 
   return (
     <Container className={classes.container} disableGutters>
-          <p className={classes.catalog}>{t('catalog')}</p>
-          <Tabs
-            value={brand}
-            indicatorColor='primary'
-            variant='scrollable'
-            textColor='primary'
-            scrollButtons
-            allowScrollButtonsMobile
-            onChange={handleChange}
-            className={classes.tabs}
-          >
-            {productsEntries?.map(([key]) => (
-              <Tab component='span' key={key} id={key} icon={key} />
-            ))}
-          </Tabs>
-          <Grid
-            container
-            spacing={4}
-            p={4}
-            mt={2}
-            justifyContent='center'
-            alignItems='top'
-          >
-            {productsEntries[brand][1].map(product => (
-              <ProductCart
-                product={product}
-                key={product._id}
-                loading={loading}
-              />
-            ))}
-          </Grid>
+      <p className={classes.catalog}>{t('catalog')}</p>
+      <Tabs
+        value={brand}
+        indicatorColor="primary"
+        variant="scrollable"
+        textColor="primary"
+        scrollButtons
+        allowScrollButtonsMobile
+        onChange={handleChange}
+        className={classes.tabs}
+      >
+        {productsEntries?.map(([key]) => (
+          <Tab component="span" key={key} id={key} icon={key} />
+        ))}
+      </Tabs>
+      <Grid
+        container
+        spacing={4}
+        p={4}
+        mt={2}
+        justifyContent="center"
+        alignItems="top"
+      >
+        {productsEntries[brand][1].map((product) => (
+          <ProductCart product={product} key={product._id} loading={loading} />
+        ))}
+      </Grid>
     </Container>
   );
 };

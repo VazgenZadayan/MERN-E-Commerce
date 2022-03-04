@@ -18,5 +18,8 @@ export default makeStyles({
     textAlign: 'center',
     color: 'rgba(255, 255, 255, 0.9)',
     marginTop: '10px'
+  },
+  'input:-internal-autofill-selected': {
+    background: '#000000'
   }
 })

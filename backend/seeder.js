@@ -9,7 +9,7 @@ import User from './models/userModel.js';
 import Order from './models/orderModel.js';
 import Product from './models/productModel.js';
 
-import connectDB from './config/db.js';
+import connectDB from './database/db.js';
 
 dotenv.config();
 
@@ -25,7 +25,7 @@ const importData = async () => {
 
     const adminUser = createdUsers[0]._id;
 
-    const sampleProducts = products.map(product => {
+    const sampleProducts = products.map((product) => {
       return { ...product, user: adminUser };
     });
 

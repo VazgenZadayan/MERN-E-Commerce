@@ -23,75 +23,77 @@ const OrderListScreen = ({ location, history }) => {
   const dispatch = useDispatch();
   const { t } = useTranslations();
 
-  const orderList = useSelector(state => state.orderList);
+  const orderList = useSelector((state) => state.orderList);
   const { loading, orders } = orderList;
+  console.log(loading);
 
-  const userLogin = useSelector(state => state.userLogin);
+  const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   useEffect(() => {
-    if(userInfo && userInfo.isAdmin) {
+    if (userInfo && userInfo.isAdmin) {
       dispatch(listOrders());
     } else {
-      history.push('/login')
+      history.push('/login');
     }
   }, [dispatch, history, userInfo]);
 
-  if(!orderList) return null;
- 
+  if (!orderList) return null;
+
   return (
-    <Container
-      md={12}
-      className={classes.container}
-    >
+    <Container md={12} className={classes.container}>
       <Typography style={{ fontSize: '40px', textAlign: 'center' }}>
         {t('orders')}
       </Typography>
       {!orders ? (
         <Loader />
       ) : (
-        <Table size='small' sx={{ minWidth: 650 }} aria-label='simple table'>
+        <Table size="small" sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align='center'>ID</TableCell>
-              <TableCell align='center'>{t('name')}</TableCell>
-              <TableCell align='center'>{t('date')}</TableCell>
-              <TableCell align='center'>{t('total_price')}</TableCell>
-              <TableCell align='center'>{t('paid')}</TableCell>
-              <TableCell align='center'>{t('delivered')}</TableCell>
-              <TableCell align='center'></TableCell>
+              <TableCell align="center">ID</TableCell>
+              <TableCell align="center">{t('name')}</TableCell>
+              <TableCell align="center">{t('date')}</TableCell>
+              <TableCell align="center">{t('total_price')}</TableCell>
+              <TableCell align="center">{t('paid')}</TableCell>
+              <TableCell align="center">{t('delivered')}</TableCell>
+              <TableCell align="center"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map(order => (
+            {orders.map((order) => (
               <TableRow key={order._id}>
-                <TableCell align='center'>{order._id}</TableCell>
-                <TableCell align='center'>
+                <TableCell align="center">{order._id}</TableCell>
+                <TableCell align="center">
                   {order.user && order.user.name}
                 </TableCell>
-                <TableCell align='center'>{order.createdAt.substring(0, 10)}</TableCell>
-                <TableCell align='center'>$ {order.price}</TableCell>
+                <TableCell align="center">
+                  {order.createdAt.substring(0, 10)}
+                </TableCell>
+                <TableCell align="center">$ {order.price}</TableCell>
 
-                <TableCell align='center'>{order.isPaid ? (
-                  order.paidAt.substring(0, 10)
-                ) : (
-                  <i className='fas fa-times' style={{color: 'red'}}></i>
-                )}
+                <TableCell align="center">
+                  {order.isPaid ? (
+                    order.paidAt.substring(0, 10)
+                  ) : (
+                    <i className="fas fa-times" style={{ color: 'red' }}></i>
+                  )}
                 </TableCell>
-                <TableCell align='center'>{order.isDelivered ? (
-                  order.deliveredAt.substring(0, 10)
-                ) : (
-                  <i className='fas fa-times' style={{color: 'red'}}></i>
-                )}
+                <TableCell align="center">
+                  {order.isDelivered ? (
+                    order.deliveredAt.substring(0, 10)
+                  ) : (
+                    <i className="fas fa-times" style={{ color: 'red' }}></i>
+                  )}
                 </TableCell>
-                <TableCell align='center'>
-                <Button
+                <TableCell align="center">
+                  <Button
                     component={Link}
                     to={`/order/${order._id}`}
-                    className='btn-sm'
-                    variant='light'
+                    className="btn-sm"
+                    variant="light"
                   >
-                   {t('details')}
+                    {t('details')}
                   </Button>
                 </TableCell>
               </TableRow>

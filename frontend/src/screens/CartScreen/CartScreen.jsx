@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from 'store/actions/cartActions';
 
 import Fb from 'components/Fb';
-import { useTranslations } from 'contexts/translation.context'
+import { useTranslations } from 'contexts/translation.context';
 
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
@@ -21,7 +21,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
-
 import useStyles from './styles';
 
 const CartScreen = ({ match, location, history }) => {
@@ -33,7 +32,7 @@ const CartScreen = ({ match, location, history }) => {
 
   const dispatch = useDispatch();
 
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const CartScreen = ({ match, location, history }) => {
     }
   }, [dispatch, productId, qty]);
 
-  const removeFromCartHandler = id => {
+  const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
 
@@ -50,45 +49,41 @@ const CartScreen = ({ match, location, history }) => {
     history.push('/login?redirect=shipping');
   };
   return (
-    <Grid
-      container
-      justifyContent='space-around'
-      className={classes.container}
-    >
+    <Grid container justifyContent="space-around" className={classes.container}>
       <Grid item md={8}>
         {cartItems.length === 0 ? (
-          <Typography className={classes.isEmpty}>
+          <Typography className={classes.isEmpty} variant="h5">
             {t('cart_empty')}
           </Typography>
         ) : (
           <Fb className={classes.tableContainer}>
             <Table
-              size='small'
+              size="small"
               sx={{ minWidth: 650 }}
-              aria-label='simple table'
+              aria-label="simple table"
             >
               <TableHead>
                 <TableRow>
                   <TableCell></TableCell>
-                  <TableCell align='left'>{t('label')}</TableCell>
-                  <TableCell align='left'>{t('weight')}</TableCell>
-                  <TableCell align='left'>{t('price')}</TableCell>
-                  <TableCell align='left'>{t('quantity')}</TableCell>
-                  <TableCell align='left'>{t('sum')}</TableCell>
-                  <TableCell align='left'></TableCell>
+                  <TableCell align="left">{t('label')}</TableCell>
+                  <TableCell align="left">{t('weight')}</TableCell>
+                  <TableCell align="left">{t('price')}</TableCell>
+                  <TableCell align="left">{t('quantity')}</TableCell>
+                  <TableCell align="left">{t('sum')}</TableCell>
+                  <TableCell align="left"></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {cartItems.map(item => (
+                {cartItems.map((item) => (
                   <TableRow key={item.product}>
-                    <TableCell component='th' scope='row'>
+                    <TableCell component="th" scope="row">
                       <img
                         src={item.image}
-                        alt='product_image'
+                        alt="product_image"
                         style={{ width: '90px', height: '90px' }}
                       />
                     </TableCell>
-                    <TableCell align='left' padding='normal'>
+                    <TableCell align="left" padding="normal">
                       <Fb column>
                         <Typography
                           style={{ color: 'white', fontSize: '10px' }}
@@ -98,12 +93,12 @@ const CartScreen = ({ match, location, history }) => {
                         <Typography>{item.name}</Typography>
                       </Fb>
                     </TableCell>
-                    <TableCell align='left'>200г</TableCell>
-                    <TableCell align='left'>{item.price}AMD</TableCell>
-                    <TableCell align='left'>
+                    <TableCell align="left">200г</TableCell>
+                    <TableCell align="left">{item.price}AMD</TableCell>
+                    <TableCell align="left">
                       <Select
-                        variant='filled'
-                        labelId='demo-simple-select-label'
+                        variant="filled"
+                        labelId="demo-simple-select-label"
                         style={{
                           color: 'white',
                           background: '#1a1a1c',
@@ -111,15 +106,15 @@ const CartScreen = ({ match, location, history }) => {
                           width: '70px',
                           borderRadius: '0',
                         }}
-                        id='demo-simple-select'
+                        id="demo-simple-select"
                         value={item.qty}
-                        onChange={e =>
+                        onChange={(e) =>
                           dispatch(
                             addToCart(item.product, Number(e.target.value))
                           )
                         }
                       >
-                        {[...Array(item.countInStock).keys()].map(x => (
+                        {[...Array(item.countInStock).keys()].map((x) => (
                           <MenuItem
                             value={x + 1}
                             key={x + 1}
@@ -130,16 +125,14 @@ const CartScreen = ({ match, location, history }) => {
                         ))}
                       </Select>
                     </TableCell>
-                    <TableCell align='left'>
-                      <Typography>
-                        {`${item.price * item.qty} AMD`}
-                      </Typography>
+                    <TableCell align="left">
+                      <Typography>{`${item.price * item.qty} AMD`}</Typography>
                     </TableCell>
-                    <TableCell align='left'>
+                    <TableCell align="left">
                       <IconButton
                         onClick={() => removeFromCartHandler(item.product)}
                       >
-                        <RestoreFromTrashIcon color='primary' />
+                        <RestoreFromTrashIcon color="primary" />
                       </IconButton>
                     </TableCell>
                   </TableRow>
@@ -153,7 +146,11 @@ const CartScreen = ({ match, location, history }) => {
         item
         md={3}
         p={2}
-        style={{background: 'rgb(18,18,18)', maxHeight: '70vh', borderRadius: '10px' }}
+        style={{
+          background: 'rgb(18,18,18)',
+          maxHeight: '70vh',
+          borderRadius: '10px',
+        }}
       >
         <Fb column justifyAround style={{ height: '100%' }}>
           <h1
@@ -174,27 +171,29 @@ const CartScreen = ({ match, location, history }) => {
               textAlign: 'left',
             }}
           >
-            {t('quantity')}: {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+            {t('quantity')}:{' '}
+            {cartItems.reduce((acc, item) => acc + item.qty, 0)}
           </Typography>
           <Divider style={{ background: '#1a1a1c', height: '3px' }} />
 
           <Typography style={{ fontFamily: 'Copperplate', fontSize: '30px' }}>
-            {t('sum')}: 
-            {cartItems
-              .reduce((acc, item) => acc + item.qty * item.price, 0)
-              } AMD
+            {t('sum')}:
+            {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}{' '}
+            AMD
           </Typography>
-          <Divider style={{ background: '#1a1a1c', height: '3px' }} variant='fullWidth'/>
-
+          <Divider
+            style={{ background: '#1a1a1c', height: '3px' }}
+            variant="fullWidth"
+          />
           <Fb column>
             <Button
               style={{
                 width: '100%',
                 marginBottom: '10px',
               }}
-              type='button'
-              variant='link'
-              className='btn-block'
+              type="button"
+              variant="link"
+              className="btn-block"
               disabled={cartItems.length === 0}
               onClick={checkoutHandler}
             >
@@ -206,9 +205,8 @@ const CartScreen = ({ match, location, history }) => {
                 background: '#1a1a1c',
               }}
               component={Link}
-              variant='link'
-              to='/'
-              
+              variant="link"
+              to="/"
             >
               {t('back_to_buy')}
             </Button>
