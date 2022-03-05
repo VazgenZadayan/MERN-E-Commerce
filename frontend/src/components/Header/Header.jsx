@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logout } from 'store/actions/userActions';
 
-import SearchBox from 'components/SearchBox/SearchBox';
 
 import Fab from '@mui/material/Fab';
 import Grid from '@mui/material/Grid';
@@ -24,8 +23,6 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-
-import logo from 'assets/logo.svg';
 
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
@@ -88,17 +85,19 @@ const Header = () => {
       container
       px={8}
       py={2}
+      pt={4}
+      pb={4}
       alignItems='center'
       justifyContent='space-between'
       className={classes.header}
     >
       <Grid item md={3}>
-        <Link to='/'>
-          <img src={logo} alt='logo' className={classes.logo} />
+        <Link to='/' className={classes.logo}>
+          <h1 style={{fontFamily: 'Burn', fontSize: '27px'}}><span style={{color: '#ff6900'}}>T</span>he <span style={{color: '#ff6900'}}>C</span>apital <span style={{color: '#ff6900'}}>S</span>hop</h1>
         </Link>
       </Grid>
       <Grid item>
-        <Stack direction='row' spacing={1}>
+        <Stack direction='row' spacing={3}>
           {userInfo ? (
             <>
               <Tooltip title='Account settings' color='primary'>
@@ -123,7 +122,7 @@ const Header = () => {
               >
                 <MenuItem component={Link} to='/profile'>
                   <ListItemIcon>
-                    <PersonOutlineIcon color='secondary' />
+                    <PersonOutlineIcon color='primary' />
                   </ListItemIcon>
                   <ListItemText>{t('my_profile')}</ListItemText>
                 </MenuItem>
@@ -131,19 +130,19 @@ const Header = () => {
                   <div>
                     <MenuItem component={Link} to='/admin/userlist'>
                       <ListItemIcon>
-                        <PeopleAltIcon color='secondary' />
+                        <PeopleAltIcon color='primary' />
                       </ListItemIcon>
                       <ListItemText>{t('users')}</ListItemText>
                     </MenuItem>
                     <MenuItem component={Link} to='/admin/productlist'>
                       <ListItemIcon>
-                        <FolderIcon color='secondary' />
+                        <FolderIcon color='primary' />
                       </ListItemIcon>
                       <ListItemText>{t('products')}</ListItemText>
                     </MenuItem>
                     <MenuItem component={Link} to='/admin/orderlist'>
                       <ListItemIcon>
-                        <AssignmentIcon color='secondary' />
+                        <AssignmentIcon color='primary' />
                       </ListItemIcon>
                       <ListItemText>{t('orders')}</ListItemText>
                     </MenuItem>
@@ -152,7 +151,7 @@ const Header = () => {
 
                 <MenuItem onClick={logoutHandler}>
                   <ListItemIcon>
-                    <LogoutIcon color='secondary' />
+                    <LogoutIcon color='primary' />
                   </ListItemIcon>
                   <ListItemText>{t('exit')}</ListItemText>
                 </MenuItem>
@@ -169,6 +168,11 @@ const Header = () => {
             <Badge
               badgeContent={cartItems.length && productCountInCart}
               color='primary'
+              sx={{
+                "& .MuiBadge-badge": {
+                  backgroundColor: "#ff6900"
+                }
+              }}
             >
               <Fab size='medium' color='secondary'>
                 <ShoppingCartIcon color='primary' />
@@ -198,7 +202,6 @@ const Header = () => {
             <MenuItem onClick={() => setLanguage('en')}>EN</MenuItem>
             <MenuItem onClick={() => setLanguage('hy')}>HY</MenuItem>
           </Menu>
-          <Route render={({ history }) => <SearchBox history={history} />} />
         </Stack>
       </Grid>
     </Grid>

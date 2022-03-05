@@ -18,7 +18,6 @@ import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 
-import image from 'assets/detailBackground.jpg';
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
 
@@ -41,8 +40,6 @@ const PlaceOrder = ({ history }) => {
 
   const orderCreate = useSelector(state => state.orderCreate);
   const { order, success } = orderCreate;
-
-  console.log('cart::', order)
 
   useEffect(() => {
     if (success) {
@@ -68,9 +65,6 @@ const PlaceOrder = ({ history }) => {
     <Container
       md={12}
       className={classes.container}
-      style={{
-        background: `url(${image}) no-repeat center/cover`,
-      }}
     >
       <Grid item md={12}>
         <Typography style={{ textAlign: 'center', fontSize: '30px' }}>

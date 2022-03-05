@@ -6,7 +6,7 @@ import { listProducts } from 'store/actions/productActions';
 
 import Fb from 'components/Fb';
 import Loader from 'components/Loader';
-import { useTranslations } from 'contexts/translation.context'
+import { useTranslations } from 'contexts/translation.context';
 
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
@@ -18,16 +18,16 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import useStyles from './styles';
 
-import image from '../../assets/detailBackground.jpg';
-
 const Slider = () => {
   const classes = useStyles();
   const { t, lang } = useTranslations();
-  
+
   const [activeSlide, setActiveSlide] = useState(0);
   const [mouseOver, setMouseOver] = useState(true);
   const dispatch = useDispatch();
-  const { loading, error, products } = useSelector(state => state.productList);
+  const { loading, error, products } = useSelector(
+    (state) => state.productList
+  );
   const slidesCount = useMemo(() => products?.length, [products]);
 
   useEffect(() => {
@@ -35,14 +35,15 @@ const Slider = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const refreshIntervalId = mouseOver && setInterval(() => changeSlide('up'), 3000);
+    const refreshIntervalId =
+      mouseOver && setInterval(() => changeSlide('up'), 3000);
     return () => {
       clearInterval(refreshIntervalId);
     };
   });
 
-  const changeSlide = direction => {
-    setActiveSlide(prev => {
+  const changeSlide = (direction) => {
+    setActiveSlide((prev) => {
       if (direction === 'up') {
         return prev >= slidesCount - 1 ? 0 : prev + 1;
       } else if (direction === 'down') {
@@ -58,30 +59,28 @@ const Slider = () => {
     });
   };
 
-  //  Background
-  // background: `url(${image}) no-repeat center/cover fixed`,
-  
   return (
     <>
       {error ? null : (
         <Container
           className={classes.container}
-          style={{  paddingTop: '6%'}}
           onMouseOver={() => setMouseOver(false)}
           onMouseOut={() => setMouseOver(true)}
+          maxWidth='lg'
+          m={0}
         >
           <Grid container className={classes.mainGrid}>
             <Grid
               item
               md={6}
-              ml={3}
+              ml={4}
               className={classes.sidebar}
               style={{ transform: `translateY(-${activeSlide * 100}%)` }}
             >
               {loading ? (
                 <Loader />
               ) : (
-                products.map(product => (
+                products.map((product) => (
                   <div
                     className={classes.sideBarDiv}
                     key={product._id}
@@ -95,6 +94,7 @@ const Slider = () => {
             <Grid
               item
               md={5}
+              mr={4}
               className={classes.mainSlide}
               style={{
                 top: `-${(slidesCount - 1) * 100}%`,
@@ -104,9 +104,9 @@ const Slider = () => {
               {loading ? (
                 <Loader />
               ) : (
-                [...products].reverse().map(product => (
+                [...products].reverse().map((product) => (
                   <Fb
-                    style={{ background: 'rgb(18,18,18)'}}
+                    style={{ background: 'rgb(18,18,18)' }}
                     className={classes.mainSlideDiv}
                     key={product._id}
                     column
@@ -115,39 +115,33 @@ const Slider = () => {
                     pl={7}
                   >
                     <Typography
-                      color='primary'
+                      color="primary"
                       style={{
                         fontSize: '18px',
                         fontFamily: 'Burn',
-                        marginBottom: '40px'
+                        marginBottom: '40px',
                       }}
                     >
                       {product.brand}
                     </Typography>
-                    <h1
-                      className={classes.name}
+                    <h1 className={classes.name}>{product.name}</h1>
+                    <Typography
+                      variant="p"
+                      className={classes.description}
+                      color="primary"
                     >
-                      {product.name}
-                    </h1>
-                    <Typography variant='p' className={classes.description} color='primary'>
                       {product.description[lang]}
                     </Typography>
                     <Fb mb={5} mt={1}>
-                      <Stack direction='row' spacing={1}>
-                        <Chip
-                          label={`${product.type}`}
-                          variant='filled'
-                        />
-                        <Chip
-                          label={`${product.weight}`}
-                          variant='filled'
-                        />
+                      <Stack direction="row" spacing={1}>
+                        <Chip label={`${product.type}`} variant="filled" />
+                        <Chip label={`${product.weight}`} variant="filled" />
                       </Stack>
                     </Fb>
                     <Button
                       component={Link}
                       to={`/product/${product._id}`}
-                      variant='link'
+                      variant="link"
                       style={{ marginTop: '40px' }}
                     >
                       {t('see_more')}
@@ -160,8 +154,8 @@ const Slider = () => {
           <KeyboardArrowDownIcon
             onClick={scrollDown}
             className={classes.keydown}
-            color='primary'
-            fontSize='60px'
+            color="primary"
+            fontSize="60px"
           />
         </Container>
       )}

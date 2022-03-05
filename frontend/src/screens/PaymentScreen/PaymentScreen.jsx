@@ -15,8 +15,6 @@ import Typography from '@mui/material/Typography';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import image from 'assets/detailBackground.jpg';
-
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
 
@@ -44,9 +42,6 @@ const PaymentScreen = ({ history }) => {
     <Grid
       container
       className={classes.container}
-      style={{
-        background: `url(${image}) no-repeat center/cover`,
-      }}
     >
       <Container maxWidth='md'>
         <Typography style={{ textAlign: 'center', fontSize: '30px' }}>
