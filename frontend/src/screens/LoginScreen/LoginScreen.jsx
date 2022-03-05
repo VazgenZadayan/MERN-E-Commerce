@@ -17,7 +17,6 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-import image from 'assets/detailBackground.jpg';
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
 
@@ -51,9 +50,6 @@ const LoginScreen = ({ location, history }) => {
     <Grid
       container
       className={classes.container}
-      style={{
-        background: `url(${image}) no-repeat center/cover`,
-      }}
     >
       <Container
         component='main'

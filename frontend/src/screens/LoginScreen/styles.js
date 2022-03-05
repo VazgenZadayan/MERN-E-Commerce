@@ -2,11 +2,10 @@ import { makeStyles } from "@mui/styles";
 
 export default makeStyles({
   container: {
-    height: '100vh',
-    paddingTop: '120px',
+    height: '78vh',
   },
   formController: {
-    background: 'rgb(145 145 145 / 21%)',
+    background: 'rgb(18,18,18)',
     height: '500px',
   },
   logo: {
@@ -19,5 +18,8 @@ export default makeStyles({
     textAlign: 'center',
     color: 'rgba(255, 255, 255, 0.9)',
     marginTop: '10px'
+  },
+  'input:-internal-autofill-selected': {
+    background: '#000000'
   }
 })

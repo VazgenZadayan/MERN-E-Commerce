@@ -2,13 +2,14 @@ import { makeStyles } from '@mui/styles';
 
 export default makeStyles({
   card: {
-    height: '300px',
-    padding: '0 7px',
+    height: '400px',
+    padding: '7px 7px 7px 7px',
     position: 'relative',
     display: 'flex',
     alignItems: 'flex-end',
     transition: '0.4s ease-out',
 	  boxShadow: '0px 7px 10px #0000008c',
+    borderRadius: '10px',
     '&:hover': {
       transform: 'translateY(5px)',
       '&::before': {
@@ -23,7 +24,7 @@ export default makeStyles({
       display: 'block',
       width: '100%',
       height: '100%',
-      borderRadius: '5px',
+      borderRadius: '10px',
       background: 'rgba(0, 0, 0, 0.7)',
       zIndex: '2',
       transition: '0.8s',
@@ -35,7 +36,7 @@ export default makeStyles({
     position: 'absolute',
     top: '0',
     left: '0',
-    borderRadius: '5px',
+    borderRadius: '10px',
     width: '100%',
     height: '100%',
   },

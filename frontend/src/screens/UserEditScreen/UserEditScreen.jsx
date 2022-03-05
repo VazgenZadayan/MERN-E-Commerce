@@ -17,8 +17,6 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-import image from 'assets/detailBackground.jpg';
-
 import useStyles from './styles';
 import { useTranslations } from 'contexts/translation.context';
 
@@ -63,7 +61,6 @@ const UserEditScreen = ({ match, history }) => {
   return (
     <Container
       className={classes.container}
-      style={{ background: `url(${image}) no-repeat center/cover` }}
     >
       <Container
         component='main'

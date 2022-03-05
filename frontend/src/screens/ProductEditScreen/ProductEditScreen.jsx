@@ -16,8 +16,6 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-import imaage from 'assets/detailBackground.jpg';
-
 import axios from 'axios';
 
 import useStyles from './styles';
@@ -115,7 +113,6 @@ const ProductEditScreen = ({ match, history }) => {
   return (
     <Container
       className={classes.container}
-      style={{ background: `url(${imaage}) no-repeat center/cover` }}
     >
       <Container
         component='main'
