@@ -9,10 +9,8 @@ import { useTranslations } from 'contexts/translation.context';
 
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
-import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import MenuItem from '@mui/material/MenuItem';
 import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -22,10 +20,12 @@ import Typography from '@mui/material/Typography';
 import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
 import useStyles from './styles';
+import CustomSelect from 'components/Select/CustomSelect';
 
 const CartScreen = ({ match, location, history }) => {
   const classes = useStyles();
   const { t } = useTranslations();
+
   const productId = match.params.id;
 
   const qty = location.search ? Number(location.search.split('=')[1]) : 1;
@@ -34,6 +34,10 @@ const CartScreen = ({ match, location, history }) => {
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
+  const handleChange = (value, id) => {
+    dispatch(addToCart(id, value));
+  };
 
   useEffect(() => {
     if (productId) {
@@ -96,34 +100,12 @@ const CartScreen = ({ match, location, history }) => {
                     <TableCell align="left">200г</TableCell>
                     <TableCell align="left">{item.price}AMD</TableCell>
                     <TableCell align="left">
-                      <Select
-                        variant="filled"
-                        labelId="demo-simple-select-label"
-                        style={{
-                          color: 'white',
-                          background: '#1a1a1c',
-                          height: '35px',
-                          width: '70px',
-                          borderRadius: '0',
-                        }}
-                        id="demo-simple-select"
+                      <CustomSelect
+                        productCount={item.countInStock}
                         value={item.qty}
-                        onChange={(e) =>
-                          dispatch(
-                            addToCart(item.product, Number(e.target.value))
-                          )
-                        }
-                      >
-                        {[...Array(item.countInStock).keys()].map((x) => (
-                          <MenuItem
-                            value={x + 1}
-                            key={x + 1}
-                            style={{ color: 'white', borderRadius: '0' }}
-                          >
-                            <p>{x + 1}</p>
-                          </MenuItem>
-                        ))}
-                      </Select>
+                        setValue={handleChange}
+                        productId={item.product}
+                      />
                     </TableCell>
                     <TableCell align="left">
                       <Typography>{`${item.price * item.qty} AMD`}</Typography>

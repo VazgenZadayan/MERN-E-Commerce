@@ -12,19 +12,23 @@ import Grid from '@mui/material/Grid';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 
 import { listProductDetails } from 'store/actions/productActions';
 import { addToCart } from 'store/actions/cartActions';
 
 import useStyles from './styles';
 import { Container } from '@mui/material';
+import CustomSelect from 'components/Select/CustomSelect';
 
 const ProductDetailSection = ({ match }) => {
+  const productId = match.params.id;
   const classes = useStyles();
   const { t, lang } = useTranslations();
   const [qty, setQty] = useState(1);
+  
+  const setQuantity = (value) => {
+    setQty(value);
+  };
 
   const dispatch = useDispatch();
 
@@ -32,13 +36,13 @@ const ProductDetailSection = ({ match }) => {
   const { loading, product } = productDetails;
 
   useEffect(() => {
-    if (!product._id || product._id !== match.params.id) {
-      dispatch(listProductDetails(match.params.id));
+    if (!product._id || product._id !== productId) {
+      dispatch(listProductDetails(productId));
     }
-  }, [dispatch, match, product]);
+  }, [dispatch, productId, product]);
 
   const addToCartHandler = () => {
-    dispatch(addToCart(match.params.id, qty));
+    dispatch(addToCart(productId, qty));
   };
 
   return (
@@ -77,41 +81,19 @@ const ProductDetailSection = ({ match }) => {
                   >
                     {t('add_to_cart_btn')}
                   </Button>
-                  <Button
-                    component={Link}
-                    variant="text"
-                    to="/"
-                  >
+                  <Button component={Link} variant="text" to="/">
                     {t('go_back')}
                   </Button>
                 </Fb>
-                  {product.countInStock > 0 ? (
-                    <div>
-                      <Select
-                        variant="filled"
-                        labelId="demo-simple-select-label"
-                        style={{
-                          color: 'white',
-                          background: 'rgb(145 145 145 / 21%)',
-                          height: '35px',
-                          width: '70px',
-                          borderRadius: '0',
-                        }}
-                        id="demo-simple-select"
-                        value={qty}
-                        onChange={(e) => setQty(e.target.value)}
-                        className={classes.select}
-                      >
-                        {[...Array(product.countInStock).keys()].map((x) => (
-                          <MenuItem value={x + 1} key={x + 1}>
-                            <p>{x + 1}</p>
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </div>
-                  ) : (
-                    'Out of Stock'
-                  )}
+                {product.countInStock > 0 ? (
+                  <CustomSelect
+                    productCount={product.countInStock}
+                    value={qty}
+                    setValue={setQuantity}
+                  />
+                ) : (
+                  'Out of Stock'
+                )}
               </Fb>
             )}
           </Grid>

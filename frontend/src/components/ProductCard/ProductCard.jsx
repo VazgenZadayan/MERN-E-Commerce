@@ -25,6 +25,7 @@ const ProductCart = ({ product, loading }) => {
   const addToCartHandler = () => {
     dispatch(addToCart(product._id, 1));
   };
+  
   return (
     <Grid md={4} lg={3} xs={10} sm={6} item p={4}>
       {loading ? (

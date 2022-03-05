@@ -41,8 +41,6 @@ const PlaceOrder = ({ history }) => {
   const orderCreate = useSelector(state => state.orderCreate);
   const { order, success } = orderCreate;
 
-  console.log('cart::', order)
-
   useEffect(() => {
     if (success) {
       history.push(`/order/${order._id}`);
